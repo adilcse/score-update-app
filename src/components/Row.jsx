@@ -37,7 +37,7 @@ const NameStack = styled.p`
 `;
 const Position = styled.p`
   color: white;
-  background: ${() => randomColor()}
+  background: #40c0d6;
   height: 23px;
   width: 23px;
   line-height: 23px;

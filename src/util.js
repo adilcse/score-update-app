@@ -1,4 +1,4 @@
-const MAX_CHANGE = 2500;
+const MAX_CHANGE = 3000;
 const changedValue = (max = MAX_CHANGE) =>  Math.floor(Math.random() * (max + 1));
 const changeOperator = () => Math.random() > 0.5 ? 1 : -1;
 const shouldScoreUpdate = () => Math.random() > 0.7;
