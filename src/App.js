@@ -40,9 +40,7 @@ function App() {
       {users.map(((user, i) => <Row
       ref={createRef()}
       key={user.userID}
-      name={user.displayName}
-      image={user.picture}
-      score={user.score}
+      user={user}
       position={i+1}/>))}
       </AnimateBubbles>
     </Container>

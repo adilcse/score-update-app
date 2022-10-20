@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import styled from "styled-components";
-import { randomColor } from "../util";
+import AnimatedScore from "./AnimatedScore";
 const DEFAULT_IMAGE= "./default-logo.png"
 const Image = styled.img`
   width: 50px;
@@ -44,13 +44,10 @@ const Position = styled.p`
   border-radius: 15px;
   margin-right: 10px
 `;
-const Score = styled.p`
-font-size: 18px;
-color: ${props =>  props.position===1? 'red':
-props.position===2? 'purple':
-props.position===3? 'blue':
-'tomato'}`
-const Row = forwardRef(({ image, name, score, position }, ref) => {
+
+const Row = forwardRef(({ user, position }, ref) => {
+  const {picture: image, displayName: name, score} = user;
+  const lastScore = user.lastScore || 0;
   return (
     <RowContainer position={position} ref={ref}>
       <Stack>
@@ -61,7 +58,7 @@ const Row = forwardRef(({ image, name, score, position }, ref) => {
         <NameStack>{name}</NameStack>
       </Stack>
       <Stack>
-        <Score position={position}>{score}pt</Score>
+        <AnimatedScore position={position} lastScore={lastScore} score={score}/>
       </Stack>
     </RowContainer>
   );

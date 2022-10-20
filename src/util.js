@@ -15,6 +15,7 @@ const randomScore = (score) => {
 
 export const getUpdatedUsers = (users) =>  users.map(user => ({
         ...user,
+        lastScore: user.score,
         score: randomScore(user.score)
     })
 );
